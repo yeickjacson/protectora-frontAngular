@@ -1,6 +1,7 @@
+
 .navbar1{
     width: 100%;
-    background-color: rgb(34, 31, 31);
+    background-color: rgba(26, 13, 4, 0.822);
     margin: 0px;
     padding: 0px;
 }
@@ -12,8 +13,17 @@
     list-style: none;
     justify-content: space-between;
 }
-.donar:hover{
+/* .donar:hover{
 color: white ;
+} */
+.btn-outline-primary {
+    color: white;
+    border: none;
+}
+.btn-outline-primary:hover{
+    color: white;
+    background-color: darkorange; 
+    border-color: darkorange;  
 }
 
 li{

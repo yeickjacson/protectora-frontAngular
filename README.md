@@ -1,3 +1,14 @@
+Pasos para ejecutar el programa:
+
+1. Instalar Angular (escribe " npm install @angular/cli " en la consola)
+2. Esperar a que instalen todos los paquetes de angular
+3. Ejecutar en la consola el comando " npm start " y esperar que cargue.
+4. En el navegador web de preferencia ir a " http://localhost:4200 "
+5. Ya puedes ver y editar el proyecto
+
+6. Nota: Despues de instalar Angular una vez en el proyecto o carpeta (paso 1 y 2) no hay necesidad de volverlo a instalar cada vez que vayas a ver algo en el proyecto, solo debes ejecutar " npm start "( realiza todo desde el paso 3 en adelante )...
+
+
 # Protectora
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
