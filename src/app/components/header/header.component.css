@@ -1,3 +1,15 @@
+ .app-navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: all 0.5s;
+    padding: 0;
+    overflow-y: auto;
+    width: 100%;
+}
+
 .active{
     margin: 0px;
     padding: 0px;
