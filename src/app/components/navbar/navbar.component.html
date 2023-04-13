@@ -2,19 +2,19 @@
   <div class="navbar1">
     <nav id="navbar">
       <ul class="menu1">
-        <li class="li pantallaChica"><a href="#"><img src="../../../assets/logo-GP.png" alt="Logo" id="logo"></a></li>
-        <li class="li pantallaChica"><button class="btn btn-outline-primary">Adoptar</button></li>
-        <li class="li pantallaChica"><button class="btn btn-outline-primary">Encontrar</button></li>
-        <li class="li "><a href="https://ceneka.net/Protectoragarrasypatas"  class="btn btn-outline-primary" role="button" target="_blank">ir a Donar</a>
+        <li class="li pantallaChica">Adoptar</li>
+        <li class="li pantallaChica">Encontrar</li>
+        <li class="li"><a href="https://ceneka.net/Protectoragarrasypatas" target="_blank">
+          ir a Donar</a>
         </li>
-        <!--  -->
-        <li  class="nav-item " *ngIf="!isloged()">
+
+        <li *ngIf="!isloged()" class="nav-item">
           <a data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link active" class="btn tooltips"
             data-placement="top" data-toggle="tooltip" data-original-title="Edit">
             <button class="btn btn-primary">Iniciar Sesion</button>
           </a>
         </li>
-        <li *ngIf="isloged() " class="nav-item">
+        <li *ngIf="isloged()" class="nav-item">
           <a (click)="handleClear()" (click)="autenticacionService.logoutUser()" class="nav-link active"
             class="btn tooltips">
             <button class="btn btn-danger">Cerrar Sesion</button>
@@ -23,55 +23,6 @@
       </ul>
     </nav>
   </div>
-
-<!-- nav-bar pantallaChica -->
-<!-- 
-  <nav class="navbar  nav-bar2 ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="../../../assets/logo-GP.png" alt="Logo" id="logo"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-        <div class="offcanvas-header">
-          <h5><img src="../../../assets/logo-GP.png" alt="Logo" id="logo"></h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link" href="#"><button class="btn btn-outline-primary">Adoptar</button></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><button class="btn btn-outline-primary">Encontrar</button></a>
-            </li>
-            <li class="nav-item">
-              <a href="https://ceneka.net/Protectoragarrasypatas"  class="btn btn-outline-primary" role="button" target="_blank">ir a Donar</a>
-            </li>
-            // <li class="busca">
-              <form class="d-flex mt-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-success" type="submit">Buscar</button>
-              </form>
-            </li> //
-            <li  class="nav-item pantallaChica" *ngIf="!isloged()">
-              <a data-bs-toggle="modal" data-bs-target="#myModal" class="nav-link active" class="btn tooltips"
-                data-placement="top" data-toggle="tooltip" data-original-title="Edit">
-                <button class="btn btn-primary">Iniciar Sesion</button>
-              </a>
-            </li>
-            <li *ngIf="isloged() pantallaChica" class="nav-item">
-              <a (click)="handleClear()" (click)="autenticacionService.logoutUser()" class="nav-link active"
-                class="btn tooltips">
-                <button class="btn btn-danger">Cerrar Sesion</button>
-              </a>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
-  </nav> -->
 
   <!-- MODAL LOGIN-->
   <div class="modal fade bd-example-modal-lg" id="myModal">

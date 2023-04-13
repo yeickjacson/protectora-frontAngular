@@ -16,9 +16,14 @@ export class BusquedaService {
   public getBusqueda():Observable<iBusqueda[]>{
     return this.http.get<iBusqueda[]>(`${this.URL}/api/busqueda`);
   }
-  public addBusqueda(busqueda: iBusqueda):Observable<iBusqueda>{
+
+  //El metodo recibe un objeto 'FormData' como parametro (Es el fomulario reactivo).
+  public addBusqueda(busqueda: FormData):Observable<iBusqueda>{
     return this.http.post<iBusqueda>(`${this.URL}/api/busqueda`,busqueda);
   }
+/*  public addBusqueda(busqueda: iBusqueda):Observable<iBusqueda>{
+    return this.http.post<iBusqueda>(`${this.URL}/api/busqueda`,busqueda);
+  } */
   public updateBusqueda(busqueda: iBusqueda):Observable<iBusqueda>{
     return this.http.put<iBusqueda>(`${this.URL}/api/busqueda`,busqueda);
   }

@@ -1,24 +1,9 @@
 .navbar1{
     width: 100%;
-    background-color: rgba(26, 13, 4, 0.822);
+    background-color: rgb(34, 31, 31);
     margin: 0px;
     padding: 0px;
 }
-
-/* .nav-bar2{
-    background-color: rgba(26, 13, 4, 0.822);
-    display: block;
-    justify-content: space-between;
-}
-
-.nav-bar2 .btn-outline-primary{
-    color: white;
-    background-color: darkorange; 
-    border-color: darkorange;  
-    padding: 5px;
-    margin-bottom: 10px;
-} */
-
 .menu1{
     margin:0px;
     display: flex;
@@ -27,29 +12,8 @@
     list-style: none;
     justify-content: space-between;
 }
-
-/* .btn-success{
-    color: white;
-    background-color: rgb(245, 141, 14); 
-    border-color: rgb(245, 141, 14);  
-}
-.btn-success:hover{
-    color: white;
-    background-color: rgb(255, 140, 0); 
-    border-color: rgb(255, 140, 0);;  
-} */
-
-
-.btn-outline-primary {
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-.btn-outline-primary:hover{
-    color: white;
-    background-color: darkorange; 
-    border-color: darkorange;  
-    
+.donar:hover{
+color: white ;
 }
 
 li{
@@ -59,11 +23,6 @@ li{
 .fa-user{
     color:white;
 }
-#logo{
-    width: 100%;
-    height: 80px;
-}
-
-.offcanvas-header img{
-    width: 80%;
+.logo1{
+    height: 2rem;
 }

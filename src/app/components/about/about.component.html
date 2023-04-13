@@ -7,8 +7,8 @@
             correspondiente,
             Tocando cada una de las Fotos encontrara la informacion necesaria..
           </p>
-          <!-- *ngIf="isloged()" later of edit -->
-           <button type="button" class="Edit" *ngIf="isloged()"
+  
+          <button type="button" class="Edit" *ngIf="isloged()"
           (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#addAdopcionModal">
           <i class="fa-solid fa-plus"></i>
          </button> 
@@ -30,7 +30,7 @@
               </div>
             </div>
 
-            <div class="iconosEdicion" *ngIf="isloged()" >
+            <div class="iconosEdicion" *ngIf="isloged()">
               <button class="Edit" (click)="onOpenModal('edit',adopcion)"><i class="fa-solid fa-pen"></i> <!-- click edit -->
               </button>
               <button class="Edit"  (click)="onOpenModal('delete', adopcion)">

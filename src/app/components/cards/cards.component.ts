@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { iBusqueda } from 'src/app/models/busqueda.interface';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
 import { BusquedaService } from 'src/app/services/busqueda.service';
@@ -12,14 +12,24 @@ import { BusquedaService } from 'src/app/services/busqueda.service';
 })
 export class CardsComponent implements OnInit {
  
+  public formGroup: FormGroup;
   public busquedas: iBusqueda[] = [];
-  public editBusqueda: iBusqueda|undefined;
-  public deleteBusqueda: iBusqueda|undefined;
+  public editBusqueda: iBusqueda | undefined;
+  public deleteBusqueda: iBusqueda | undefined;
 
   constructor(
-    private busquedaService:BusquedaService,
-    public autenticacionService: AutenticacionService
-    ) { }
+    private busquedaService: BusquedaService,
+    public autenticacionService: AutenticacionService,
+    private formBuilder: FormBuilder
+  ) { 
+    //Se creo un Reactive Form (para reemplazar el Template Form que estaba)
+    this.formGroup = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      localidad: ['', Validators.required],
+      telefono: ['', Validators.required],
+      img: []
+    });
+  }
 
   ngOnInit(): void {
     this.getBusqueda();
@@ -58,11 +68,41 @@ export class CardsComponent implements OnInit {
     button.click();
   }
 
-  public onAddBusqueda(addForm: NgForm): void {
+  //Escucha al evento del <input type=file>
+  onFileSelect(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.formGroup.get("img")?.setValue(file);
+    }
+  }
+
+  //Envía el formulario reactivo
+  public onAddBusqueda(): void {
+    document.getElementById('add-busqueda-form')?.click();
+    let formData: FormData = new FormData();
+
+    formData.append("nombre", this.formGroup.get("nombre")?.value);
+    formData.append("localidad", this.formGroup.get("localidad")?.value);
+    formData.append("telefono", this.formGroup.get("telefono")?.value);
+    formData.append("img", this.formGroup.get("img")?.value);
+
+    this.busquedaService.addBusqueda(formData).subscribe({
+      next: (response: iBusqueda) => {
+        this.getBusqueda();
+        this.formGroup.reset();
+        window.location.reload();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+        this.formGroup.reset();
+      },
+    }); 
+  }
+
+/*  public onAddBusqueda(addForm: NgForm): void {
     document.getElementById('add-busqueda-form')?.click();
     this.busquedaService.addBusqueda(addForm.value).subscribe({
       next: (response: iBusqueda) => {
-       /*  console.log(response); */
         this.getBusqueda();
         addForm.reset();
         window.location.reload();
@@ -72,7 +112,7 @@ export class CardsComponent implements OnInit {
         addForm.reset();
       },
     });
-  }
+  } */
 
 public onUpdateBusqueda(busqueda:iBusqueda){
   this.editBusqueda=busqueda;
